@@ -5,6 +5,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
+			:root {
+				--adjust-raccoon: skew(-4deg);
+				--box-size: 400px;
+			}
+
 			html, body {
 				background-color: #222;
 				padding: 0;
@@ -14,12 +19,12 @@
 			}
 			#box {
 				background-color: #fff;
-				width: 400px;
-				height: 400px;
-				border-radius: 200px;
+				width: var(--box-size);
+				height: var(--box-size);
+				border-radius: calc(var(--box-size) / 2);
 				position: fixed;
-				top: calc(50% - 200px);
-				left: calc(50% - 200px);
+				top: calc(50% - var(--box-size) / 2);
+				left: calc(50% - var(--box-size) / 2);
 				overflow: hidden;
 				animation: rotate 15s forwards infinite;
 			}
@@ -27,6 +32,7 @@
 			#box img {
 				width: 100%;
 				animation: bounce 0.5s forwards infinite;
+				transform: var(--adjust-raccoon) translate(5px, 10px);
 			}
 
 			@keyframes rotate {
@@ -41,15 +47,15 @@
 
 			@keyframes bounce {
 				0% {
-					transform: translateY(0px);
+					transform: var(--adjust-raccoon) translate(5px, 10px);
 				}
 
 				50% {
-					transform: translateY(-10px);
+					transform: var(--adjust-raccoon) translate(-4px, 0px);
 				}
 
 				100% {
-					transform: translateY(0px);
+					transform: var(--adjust-raccoon) translate(5px, 10px);
 				}
 			}
 		</style>
